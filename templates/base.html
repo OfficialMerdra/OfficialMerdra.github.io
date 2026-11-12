@@ -14,6 +14,12 @@
     }());
   </script>
   <link rel="stylesheet" href="{{ get_url(path='merdra.css') }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any"> 
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="alternate" type="application/atom+xml" title="{{ config.title }} feed" href="{{ get_url(path='atom.xml') }}">
   {% if page and page.extra.katex | default(value=false) %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
