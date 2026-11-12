@@ -15,7 +15,7 @@ google_analytics = ""
 
 menu = [
   { url = "/", name = "Blog", slash = true, active_prefix = "/blog/" },
-  { url = "/research", name = "Research", slash = true, active_prefix = "/research/" },
-  { url = "/archive", name = "Archive", slash = true, active_prefix = "/archive/" },
+  #{ url = "/research", name = "Research", slash = true, active_prefix = "/research/" },
+  #{ url = "/archive", name = "Archive", slash = true, active_prefix = "/archive/" },
   { url = "/about", name = "About", slash = true, active_prefix = "/about/" },
 ]
