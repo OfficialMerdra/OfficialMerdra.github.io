@@ -2,7 +2,8 @@
 {% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
 {% block content %}
   {% set blog = get_section(path="blog/_index.md") %}
-  {% set research = get_section(path="research/_index.md") %}
+
+ <!-- {% set research = get_section(path="research/_index.md") %} -->
   <section class="archive-page">
     <header class="page-heading archive-page__heading">
       <h1>{{ page.title }}</h1>
@@ -20,10 +21,13 @@
     {% set archive_group_pages = blog.pages %}
     {% include "include/archive-group.html" %}
 
+    <!--
     {% set archive_group_id = "research" %}
     {% set archive_group_title = "Research" %}
     {% set archive_group_label = "notes" %}
     {% set archive_group_pages = research.pages %}
     {% include "include/archive-group.html" %}
+    -->
+    
   </section>
 {% endblock content %}
