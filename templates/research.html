@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
+{% block content %}
+  <section class="archive-page">
+    <nav class="browse-nav" aria-label="Browse research">
+      <span>Explore</span>
+      <a href="{{ get_url(path='authors') }}">Authors</a>
+      <a href="{{ get_url(path='categories') }}">Categories</a>
+      <a href="{{ get_url(path='tags') }}">Tags</a>
+    </nav>
+    <div class="section-heading"><h1>Research</h1><span>{{ section.pages | length }} {% if section.pages | length == 1 %}note{% else %}notes{% endif %}</span></div>
+    {% set listing_posts = section.pages %}
+    {% include "include/post-list.html" %}
+  </section>
+{% endblock content %}

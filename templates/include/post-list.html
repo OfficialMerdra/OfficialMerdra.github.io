@@ -1,0 +1,12 @@
+{% if listing_posts %}
+  <div class="post-list">
+    {% for post in listing_posts %}
+      <article class="post-card">
+        <div class="post-card__meta">
+          <time datetime="{{ post.date }}">{{ post.date | date(format="%d %b %Y") }}</time>
+        </div>
+        <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+      </article>
+    {% endfor %}
+  </div>
+{% else %}<p class="empty-state">Posts are coming soon.</p>{% endif %}

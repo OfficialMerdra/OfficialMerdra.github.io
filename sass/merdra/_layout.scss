@@ -1,0 +1,35 @@
+.site-shell { width: min(#{$content-width}, calc(100% - 3rem)); margin-inline: auto; }
+.site-header { border-bottom: 1px solid var(--line); background: var(--header); }
+.site-header__inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.site-brand { display: inline-flex; align-items: center; gap: 0.2rem; color: var(--heading); font-size: 1.13rem; font-weight: 750; letter-spacing: -0.025em; text-decoration: none; white-space: nowrap; }
+.site-brand:hover { color: var(--accent); }
+.site-brand__suffix { color: var(--muted); font-size: 0.82rem; font-weight: 450; letter-spacing: 0; }
+.site-controls { display: flex; align-items: center; gap: 1.1rem; }
+.site-nav { display: flex; align-items: center; gap: 1.5rem; }
+.site-nav a { padding: 0.25rem 0; color: var(--muted); font-size: 0.92rem; font-weight: 600; text-decoration: none; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--accent); }
+.site-nav a[aria-current="page"] { border-bottom: 2px solid var(--accent); }
+.theme-toggle { display: inline-grid; width: 2rem; height: 2rem; place-items: center; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--heading); font: 1.2rem/1 $font-sans; cursor: pointer; }
+.theme-toggle[hidden] { display: none; }
+.theme-toggle:hover { border-color: var(--heading); }
+.theme-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.theme-toggle__sun { display: none; }
+:root[data-theme="dark"] .theme-toggle__moon { display: none; }
+:root[data-theme="dark"] .theme-toggle__sun { display: inline; }
+.site-main { flex: 1; padding-block: clamp(3rem, 7vw, 5.25rem) 5rem; }
+.site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.82rem; }
+.site-footer__inner { min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.site-footer a { color: inherit; }
+@media (max-width: $small-screen) {
+  .site-shell { width: min(100% - 2rem, #{$content-width}); }
+  .site-header__inner { min-height: 70px; }
+  .site-brand__suffix { display: none; }
+  .site-header__inner { gap: 0.5rem; }
+  .site-controls { gap: 0.55rem; }
+  .site-nav { gap: 0.65rem; }
+  .site-nav a { font-size: 0.82rem; }
+}
+@media (max-width: 480px) {
+  .site-header__inner { flex-wrap: wrap; padding-block: 0.6rem; }
+  .site-controls { width: 100%; justify-content: space-between; }
+}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block content %}
+  {% set blog = get_section(path="blog/_index.md") %}
+  {% set research = get_section(path="research/_index.md") %}
+  <section class="archive-page">
+    <header class="page-heading archive-page__heading">
+      <h1>{{ page.title }}</h1>
+      <p class="page-heading__intro">{{ page.description }}</p>
+    </header>
+    <nav class="browse-nav" aria-label="Browse writing">
+      <a href="{{ get_url(path='') }}">Latest</a>
+      <a href="{{ get_url(path='authors') }}">Authors</a>
+      <a href="{{ get_url(path='categories') }}">Categories</a>
+      <a href="{{ get_url(path='tags') }}">Tags</a>
+    </nav>
+    {% set archive_group_id = "blog" %}
+    {% set archive_group_title = "Blog" %}
+    {% set archive_group_label = "posts" %}
+    {% set archive_group_pages = blog.pages %}
+    {% include "include/archive-group.html" %}
+
+    {% set archive_group_id = "research" %}
+    {% set archive_group_title = "Research" %}
+    {% set archive_group_label = "notes" %}
+    {% set archive_group_pages = research.pages %}
+    {% include "include/archive-group.html" %}
+  </section>
+{% endblock content %}

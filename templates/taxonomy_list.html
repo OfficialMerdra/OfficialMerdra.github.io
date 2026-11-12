@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ taxonomy.name | title }} | {{ config.title }}{% endblock title %}
+{% block content %}
+  <section class="archive-page">
+    <header class="page-heading"><p class="eyebrow">Merdra / browse</p><h1>{{ taxonomy.name | title }}</h1><p class="page-heading__intro">Browse writing by {{ taxonomy.name }}.</p></header>
+    <nav class="browse-nav" aria-label="Browse writing">
+      <a href="{{ get_url(path='') }}">Latest</a>
+      <a href="{{ get_url(path='authors') }}">Authors</a>
+      <a href="{{ get_url(path='categories') }}">Categories</a>
+      <a href="{{ get_url(path='tags') }}">Tags</a>
+    </nav>
+    {% if terms %}
+      <ul class="term-list">
+        {% for term in terms %}<li><a href="{{ term.permalink }}"><span>{{ term.name }}</span><small aria-label="{{ term.page_count }} {% if term.page_count == 1 %}post{% else %}posts{% endif %}">{{ term.page_count }}</small></a></li>{% endfor %}
+      </ul>
+    {% else %}<p class="empty-state">No {{ taxonomy.name }} yet.</p>{% endif %}
+  </section>
+{% endblock content %}

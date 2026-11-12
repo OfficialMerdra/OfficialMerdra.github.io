@@ -1,0 +1,7 @@
+/public/
+/.zola-cache/
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo

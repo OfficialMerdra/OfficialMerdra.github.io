@@ -1,0 +1,21 @@
+base_url = "https://blog.merdra.com"
+title = "Merdra Blog"
+description = "Articles and updates from Merdra"
+default_language = "en"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+author = "Merdra"
+compile_sass = true
+taxonomies = [{ name = "authors" }, { name = "categories" }, { name = "tags" }]
+
+
+[extra]
+google_analytics = ""
+
+
+menu = [
+  { url = "/", name = "Blog", slash = true, active_prefix = "/blog/" },
+  { url = "/research", name = "Research", slash = true, active_prefix = "/research/" },
+  { url = "/archive", name = "Archive", slash = true, active_prefix = "/archive/" },
+  { url = "/about", name = "About", slash = true, active_prefix = "/about/" },
+]

@@ -1,0 +1,22 @@
+<section class="archive-collection" aria-labelledby="archive-{{ archive_group_id }}">
+  <header class="archive-collection__heading">
+    <h2 id="archive-{{ archive_group_id }}">{{ archive_group_title }}</h2>
+    <span>{{ archive_group_pages | length }} {{ archive_group_label }}</span>
+  </header>
+  {% if archive_group_pages %}
+    <div class="archive-years">
+      {% set_global archive_current_year = 0 %}
+      {% for post in archive_group_pages %}
+        {% if post.year != archive_current_year %}
+          {% if not loop.first %}</ul></section>{% endif %}
+          <section class="archive-year" aria-labelledby="year-{{ archive_group_id }}-{{ post.year }}">
+            <h3 id="year-{{ archive_group_id }}-{{ post.year }}">{{ post.year }}</h3>
+            <ul class="archive-entries">
+          {% set_global archive_current_year = post.year %}
+        {% endif %}
+        <li><a href="{{ post.permalink }}"><time datetime="{{ post.date }}">{{ post.date | date(format="%d %b") }}</time><span>{{ post.title }}</span><span aria-hidden="true">→</span></a></li>
+        {% if loop.last %}</ul></section>{% endif %}
+      {% endfor %}
+    </div>
+  {% else %}<p class="empty-state">No {{ archive_group_label }} yet.</p>{% endif %}
+</section>
