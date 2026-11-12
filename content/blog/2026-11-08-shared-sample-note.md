@@ -14,6 +14,6 @@ katex = true
 
 This is a dummy post credited to simi and enoma. It demonstrates how one article can appear in both author archives.
 
-Here is a small KaTeX example: {% <katex> %}$a^2 + b^2 = c^2${% </katex> %}
+
 
 Replace this text when a real collaborative article is ready.
