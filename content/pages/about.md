@@ -1,6 +1,7 @@
 +++
 title = "About"
 description = "About Merdra and this blog."
+path = "about"
 +++
 
 We’re building infrastructure that helps your health data follow you from one hospital to another. With your permission, the team caring for you at your next hospital can access the records they need.
