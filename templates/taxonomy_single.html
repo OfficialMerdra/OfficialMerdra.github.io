@@ -3,9 +3,12 @@
 {% block content %}
   <section class="archive-page">
     <header class="page-heading"><p class="eyebrow">Merdra / {{ taxonomy.name }}</p><h1>{{ term.name }}</h1><p class="page-heading__intro">{{ term.page_count }} {% if term.page_count == 1 %}post{% else %}posts{% endif %} in this archive.</p></header>
+    {% set header_current_path = current_path | default(value="") %}
+    {% set is_latest = header_current_path == "/" or header_current_path == "" %}
+    {% set is_all_taxonomy = header_current_path == "/" ~ taxonomy.name or header_current_path is starting_with(pat="/" ~ taxonomy.name ~ "/") %}
     <nav class="browse-nav" aria-label="Browse writing">
-      <a href="{{ get_url(path='') }}">Latest</a>
-      <a href="{{ get_url(path=taxonomy.name) }}">All {{ taxonomy.name }}</a>
+      <a href="{{ get_url(path='') }}"{% if is_latest %} class="is-active" aria-current="page"{% endif %}>Latest</a>
+      <a href="{{ get_url(path=taxonomy.name) }}"{% if is_all_taxonomy %} class="is-active" aria-current="page"{% endif %}>All {{ taxonomy.name }}</a>
     </nav>
     {% set listing_posts = term.pages %}
     {% include "include/post-list.html" %}

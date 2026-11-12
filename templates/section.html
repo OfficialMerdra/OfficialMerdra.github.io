@@ -3,11 +3,16 @@
 {% block content %}
   <section class="archive-page">
     <header class="page-heading"><p class="eyebrow">Merdra / {{ section.title | lower }}</p><h1>{{ section.title }}</h1>{% if section.description %}<p class="page-heading__intro">{{ section.description }}</p>{% endif %}</header>
+    {% set header_current_path = current_path | default(value="") %}
+    {% set is_latest = header_current_path == "/" or header_current_path == "" %}
+    {% set is_authors = header_current_path == "/authors" or header_current_path is starting_with(pat="/authors/") %}
+    {% set is_categories = header_current_path == "/categories" or header_current_path is starting_with(pat="/categories/") %}
+    {% set is_tags = header_current_path == "/tags" or header_current_path is starting_with(pat="/tags/") %}
     <nav class="browse-nav" aria-label="Browse writing">
-      <a href="{{ get_url(path='') }}">Latest</a>
-      <a href="{{ get_url(path='authors') }}">Authors</a>
-      <a href="{{ get_url(path='categories') }}">Categories</a>
-      <a href="{{ get_url(path='tags') }}">Tags</a>
+      <a href="{{ get_url(path='') }}"{% if is_latest %} class="is-active" aria-current="page"{% endif %}>Latest</a>
+      <a href="{{ get_url(path='authors') }}"{% if is_authors %} class="is-active" aria-current="page"{% endif %}>Authors</a>
+      <a href="{{ get_url(path='categories') }}"{% if is_categories %} class="is-active" aria-current="page"{% endif %}>Categories</a>
+      <a href="{{ get_url(path='tags') }}"{% if is_tags %} class="is-active" aria-current="page"{% endif %}>Tags</a>
     </nav>
     {% set listing_posts = section.pages %}
     {% include "include/post-list.html" %}

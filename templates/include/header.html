@@ -1,12 +1,14 @@
 <header class="site-header">
   {% set header_current_path = current_path | default(value="") %}
   <div class="site-shell site-header__inner">
-    <a class="site-brand" href="{{ get_url(path='') }}" aria-label="Merdra Blog home">Merdra<span class="site-brand__suffix"> / writing</span></a>
+    <a class="site-brand" href="{{ get_url(path='') }}" aria-label="Merdra Blog home">
+      <img class="merdra-icon" src="{{ get_url(path='merdra.svg') }}" alt="Merdra Blog" srcset="">
+      <span class="site-brand__suffix"> / writing</span></a>
     <div class="site-controls">
       <nav class="site-nav" aria-label="Main navigation">
         {% for item in config.extra.menu %}
           {% set is_active = header_current_path == item.url or header_current_path is starting_with(pat=item.active_prefix) %}
-          <a href="{{ get_url(path=item.url, trailing_slash=item.slash) }}"{% if is_active %} aria-current="page"{% endif %}>{{ item.name }}</a>
+          <a class="site-nav-btn" href="{{ get_url(path=item.url, trailing_slash=item.slash) }}"{% if is_active %} aria-current="page"{% endif %}>{{ item.name }}</a>
         {% endfor %}
       </nav>
       <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle dark mode" data-theme-toggle hidden><span class="theme-toggle__moon" aria-hidden="true">☾</span><span class="theme-toggle__sun" aria-hidden="true">☀</span></button>
