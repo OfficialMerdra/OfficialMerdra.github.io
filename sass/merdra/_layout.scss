@@ -75,11 +75,16 @@
   .site-header__inner { min-height: 70px; }
   .site-brand__suffix { display: none; }
   .site-header__inner { gap: 0.5rem; }
-  .site-controls { gap: 0.55rem; }
+  .site-controls { gap: 0.5rem; }
   .site-nav { gap: 0.65rem; }
   .site-nav a { font-size: 0.82rem; }
+  .site-header .merdra-icon { height: 1.8rem; }
 }
 @media (max-width: 480px) {
   .site-header__inner { flex-wrap: wrap; padding-block: 0.6rem; }
-  .site-controls { width: 100%; justify-content: space-between; }
+  .site-controls { justify-content: space-between; gap: 0.4rem }
+
+  .site-nav .site-nav-btn {
+    width: 100px;
+  }
 }
