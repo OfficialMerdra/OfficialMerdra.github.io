@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block content %}
+  <article class="article-page">
+    <header class="article-header">
+      <h1>{{ page.title }}</h1>
+      <div class="article-meta">
+        <p><time datetime="{{ page.date }}">{{ page.date | date(format="%d %B %Y") }}</time></p>
+        <p>By {% for author in page.taxonomies.authors %}<a href="{{ get_taxonomy_url(kind='authors', term=author) }}">{{ author }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      </div>
+    </header>
+    <div class="article-body">
+      <p>{{ page.description }}</p>
+      <p><a href="{{ page.extra.external_url }}" rel="external">Read the original article on {{ page.extra.external_site | default(value="the author's site") }} ↗</a></p>
+    </div>
+  </article>
+{% endblock content %}

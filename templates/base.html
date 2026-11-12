@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ config.title }}{% endblock title %}</title>
   <meta name="description" content="{% if page and page.description %}{{ page.description }}{% elif section and section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}">
+  {% if page and page.extra.external_url %}<link rel="canonical" href="{{ page.extra.external_url }}">{% endif %}
   <script>
     (function () {
       var saved;

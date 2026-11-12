@@ -4,8 +4,10 @@
       <article class="post-card">
         <div class="post-card__meta">
           <time datetime="{{ post.date }}">{{ post.date | date(format="%d %b %Y") }}</time>
+          {% if post.extra.external_url %}<span>· On {{ post.extra.external_site | default(value="another site") }}</span>{% endif %}
         </div>
-        <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+        <h2><a href="{{ post.extra.external_url | default(value=post.permalink) }}"{% if post.extra.external_url %} rel="external"{% endif %}>{{ post.title }}{% if post.extra.external_url %} <span class="post-card__external" aria-label="External article">↗</span>{% endif %}</a></h2>
+        {% if post.description %}<p class="post-card__description">{{ post.description }}</p>{% endif %}
       </article>
     {% endfor %}
   </div>

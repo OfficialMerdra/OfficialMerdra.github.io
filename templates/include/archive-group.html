@@ -14,7 +14,7 @@
             <ul class="archive-entries">
           {% set_global archive_current_year = post.year %}
         {% endif %}
-        <li><a href="{{ post.permalink }}"><time datetime="{{ post.date }}">{{ post.date | date(format="%d %b") }}</time><span>{{ post.title }}</span><span aria-hidden="true">→</span></a></li>
+        <li><a href="{{ post.extra.external_url | default(value=post.permalink) }}"{% if post.extra.external_url %} rel="external"{% endif %}><time datetime="{{ post.date }}">{{ post.date | date(format="%d %b") }}</time><span>{{ post.title }}{% if post.extra.external_url %} <small>(on {{ post.extra.external_site | default(value="another site") }})</small>{% endif %}</span><span aria-hidden="true">{% if post.extra.external_url %}↗{% else %}→{% endif %}</span></a></li>
         {% if loop.last %}</ul></section>{% endif %}
       {% endfor %}
     </div>
