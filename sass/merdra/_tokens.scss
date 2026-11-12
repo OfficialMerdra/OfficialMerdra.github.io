@@ -32,9 +32,3 @@ $font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 :root[data-theme="dark"] { @include dark-palette; }
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    @include dark-palette;
-  }
-}

@@ -10,8 +10,7 @@
     (function () {
       var saved;
       try { saved = localStorage.getItem('merdra-theme'); } catch (error) {}
-      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : (systemDark ? 'dark' : 'light');
+      document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
     }());
   </script>
   <link rel="stylesheet" href="{{ get_url(path='merdra.css') }}">
