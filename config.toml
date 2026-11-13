@@ -10,7 +10,7 @@ taxonomies = [{ name = "authors" }, { name = "categories" }, { name = "tags" }]
 
 
 [extra]
-google_analytics = ""
+google_analytics = "GTM-PX4XHMCZ"
 
 
 menu = [
